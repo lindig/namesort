@@ -256,7 +256,8 @@ let usage this =
     ; ""
     ; this ^ " -d file.txt      debuging output - show tags and sort keys"
     ; ""
-    ; "(c) 2013 Christian Lindig <lindig@gmail.com>"
+    ; "(c) 2013 Christian Lindig <lindig@gmail.com>. Released under"
+    ; "the BSD 2-Clause license. "
     ]
 
 let main () =
@@ -345,12 +346,9 @@ Emit debugging information. Input is read from I<file>.
 Upon successful completion the exit code is 0, and non-zero otherwise.
 Error messages go to stderr.
 
-=head1 AUTHOR
-
-Christian Lindig <lindig@gmail.com>
-
 =head1 COPYRIGHT
 
-This tool and all its source code is in the public domain.
+This software is (c) 2013 Christian Lindig <lindig@gmail.com> and released
+under the BSD 2-Clause license that is part of the source code.
 @
 

@@ -2,3 +2,9 @@
 .*.un*
 _build
 
+
+/namesort
+/namesort.1
+/namesort.mll
+/namesort.pod
+/test.txt
