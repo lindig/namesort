@@ -245,8 +245,8 @@ we don't recognize the command line.
 <<epilogue>>=
 let usage this =
     List.iter prerr_endline
-    [ this ^ " reads input line by line and expects each line to contain"
-    ; "a name. It sorts lines by last names and emits them to stdout."
+    [ this ^ " reads names line by line from a file or stdin, sorts"
+    ; "lines by last name and emits the sorted lines to stdout."
     ; ""
     ; this ^ " usage:"
     ; ""
@@ -255,6 +255,9 @@ let usage this =
     ; this ^ " -h               emit help to stderr"
     ; ""
     ; this ^ " -d file.txt      debuging output - show tags and sort keys"
+    ; ""
+    ; "The expected input encoding is Latin-1 and might change for"
+    ; "a future version."
     ; ""
     ; "(c) 2013 Christian Lindig <lindig@gmail.com>. Released under"
     ; "the BSD 2-Clause license. "

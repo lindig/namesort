@@ -61,7 +61,9 @@ contains instructions for doing so:
     make install
 
 For installation, check the Makefile and use `make install`. This target
-builds a Unix manual page that is also installed.
+builds a Unix manual page that is also installed. The manual page is
+created with Perl's `pod2man` tool which typically is installed on a
+developer machine.
 
 The code is portable but the build and installation process assumes
 a Unix environment.
