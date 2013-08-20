@@ -10,16 +10,19 @@
 #
 # to build it and edit the definition of LP below to use it.
 #
+PREFIX		= $(HOME)
+BINDIR		= $(PREFIX)/bin
+MAN1DIR		= $(PREFIX)/man/man1
 
+# remove second defintion of LP to use local Lipsum
 LP		= ./lipsum/lipsum
 LP 		= lipsum
-OCB 		= ocamlbuild
-PREFIX		= /usr/local
 
+OCB 		= ocamlbuild
 SRC 		= namesort.mll
 SRC		+= 
 
-DOC		= README.md namesort.pod namesort.1 test.txt
+DOC		= namesort.md namesort.pod namesort.1 test.txt
 
 all: 		$(SRC) $(DOC)
 		$(OCB) namesort.native
@@ -40,11 +43,13 @@ clean:
 		rm -f $(SRC) $(DOC)
 		rm -f gmon.out
 		rm -f test.txt
-		# rm -f lipsum
+
+clobber:	clean
+		rm -rf lipsum
 
 install:	all
-		install namesort    $(PREFIX)/bin
-		install namesort.1  $(PREFIX)/share/man/man1
+		install namesort    $(BINDIR)
+		install namesort.1  $(MAN1DIR)
 
 %.ml:		namesort.lp
 		$(LP) tangle -f cpp $@ $< > $@
@@ -55,7 +60,7 @@ install:	all
 %.mll:		namesort.lp
 		$(LP) tangle -f cpp $@ $< > $@
 
-README.md: 	namesort.lp
+namesort.md: 	namesort.lp
 		$(LP) weave $< > $@
 
 test.txt:	namesort.lp

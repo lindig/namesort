@@ -286,15 +286,15 @@ let () =
 # Tests
 
 <<test.txt>>=
+Dr. House
 Otto von Bismark
 Professor Donald E. Knuth
-Dr. House
 Christian
 Gertrud von Le Fort
 Prof. Dr. Kurt Melhorn
-Duke Ellington
 Charles-Michel de l'Epée
 Peter von der Osten-Sacken
+Duke Ellington
 Bernt Ture von zur Mühlen
 @
 
