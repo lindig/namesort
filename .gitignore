@@ -8,3 +8,5 @@ _build
 /namesort.mll
 /namesort.pod
 /test.txt
+/lipsum/
+/namesort.md
