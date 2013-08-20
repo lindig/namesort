@@ -1,12 +1,11 @@
-#
-# Makefile
+# vim: ts=8 sw=8 noet:
 #
 # Namesort - a tool to sort people's names by last name.
 # 
 # The source code is written as a literate program using Lipsum as a tool.
 # Lipsum is available from https://github.com/lindig/lipsum. Try
 #
-#   make lipsum
+#	make lipsum
 #
 # to build it and edit the definition of LP below to use it.
 #
@@ -14,17 +13,19 @@ PREFIX		= $(HOME)
 BINDIR		= $(PREFIX)/bin
 MAN1DIR		= $(PREFIX)/man/man1
 
-# remove second defintion of LP to use local Lipsum
+# remove second definition of LP to use local Lipsum
 LP		= ./lipsum/lipsum
-LP 		= lipsum
+LP		= lipsum
 
-OCB 		= ocamlbuild
-SRC 		= namesort.mll
+OCB		= ocamlbuild
+SRC		= namesort.mll
 SRC		+= 
 
-DOC		= namesort.md namesort.pod namesort.1 test.txt
+DOC		=  namesort.md 
+DOC		+= namesort.pod namesort.1 
+DOC		+= test.txt
 
-all: 		$(SRC) $(DOC)
+all:		$(SRC) $(DOC)
 		$(OCB) namesort.native
 		mv namesort.native namesort
 
@@ -38,11 +39,10 @@ test:		all test.txt
 		./namesort -d test.txt
 		./namesort    test.txt
 
-clean: 		
+clean:		
 		$(OCB) -clean
 		rm -f $(SRC) $(DOC)
 		rm -f gmon.out
-		rm -f test.txt
 
 clobber:	clean
 		rm -rf lipsum
@@ -60,7 +60,7 @@ install:	all
 %.mll:		namesort.lp
 		$(LP) tangle -f cpp $@ $< > $@
 
-namesort.md: 	namesort.lp
+namesort.md:	namesort.lp
 		$(LP) weave $< > $@
 
 test.txt:	namesort.lp
