@@ -344,6 +344,21 @@ Emit debugging information. Input is read from I<file>.
 
 =back
 
+
+=head1 EXAMPLE
+
+    $ head -4 test.txt 
+    Dr. House
+    Otto von Bismark
+    Professor Donald E. Knuth
+    Christian
+
+    $ head -4 test.txt | namesort
+    Otto von Bismark
+    Christian
+    Dr. House
+    Professor Donald E. Knuth
+
 =head1 EXIT CODE
 
 Upon successful completion the exit code is 0, and non-zero otherwise.
@@ -352,6 +367,8 @@ Error messages go to stderr.
 =head1 COPYRIGHT
 
 This software is (c) 2013 Christian Lindig <lindig@gmail.com> and released
-under the BSD 2-Clause license that is part of the source code.
+under the BSD 2-Clause license that is part of the source code. The source
+code is available from https://github.com/lindig/namesort.
 @
+
 
