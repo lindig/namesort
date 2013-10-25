@@ -1,10 +1,10 @@
 
 # Namesort
 
-Namesort is a small command line utility to sort a list of names by their
+Namesort is a small command-line utility to sort a list of names by their
 last name. This is a typical task when lists of names are maintained for
-minutes and such where you might not want to use Lastname, Firstname but
-sill need a way to sort names by last name.  The list of names is read from
+minutes and such where you might not want to use "Lastname, Firstname" but
+still need a way to sort names by last name.  The list of names is read from
 a file or stdin, sorted, and emitted to stdout:
 
     $ cat test.txt 
@@ -33,7 +33,7 @@ a file or stdin, sorted, and emitted to stdout:
 
 
 Sorting names is done heuristically by trying to identify the last name
-which might be preceded by academic titles, first names and prefixes. The
+that might be preceded by academic titles, first names and prefixes. The
 last name for each entry is then used for sorting. The rules for sorting
 names vary greatly from country to country. For a discussion see:
 
@@ -44,7 +44,7 @@ There is probably no way to automatically determine the correct order in
 all cases automatically. Indeed, in the example above `Gertrud von Le
 Fort`, `Bernt Ture von zur Mühlen` and `Charles-Michel de l'Epée` should
 have not been ordered according the last word but the second last word of
-the name. So the tool is not perfect.
+the name. So the namesort is not perfect.
 
 # Implementation, Building, and Installation
 
@@ -62,7 +62,7 @@ contains instructions for doing so:
 
 For installation, check the Makefile and use `make install`. This target
 builds a Unix manual page that is also installed. The manual page is
-created with Perl's `pod2man` tool which typically is installed on a
+created with Perl's `pod2man` tool that typically is installed on a
 developer machine.
 
 The code is portable but the build and installation process assumes
@@ -70,13 +70,14 @@ a Unix environment.
 
 # Encoding
 
-Lipsum assumes so far input to be Latin-1 encoded. Switching to UTF-8 will 
+Lipsum assumes so far input to be Latin-1 encoded. I haven't thought about
+UTF-8 encoding yet and would welcome suggestions.
 
 # Algorithm
 
 Namesorts works as follows: it reads input line by line and splits each
-line into components. Each component is tagged. The most important
-tag is Name which indicates that the component it should be considered for
+line into components. In turn, aach component is tagged. The most important
+tag is Name which indicates that the component should be considered for
 determining the order of lines. For example:
 
     Otto von Bismark
@@ -84,7 +85,7 @@ determining the order of lines. For example:
     Dr. House
     Prof. Dr. Kurt Melhorn
 
-These lines are split, tagged, and  ordered each by their tag as follows:
+These lines are split, tagged, and ordered each by their tag as follows:
 
     N:Bismark N:Otto L:von S:  S: 
     N:House T:Dr. S: 
